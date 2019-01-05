@@ -20,19 +20,19 @@ The Java utility currently supports PNG, JPEG, BMP, and GIF input file types. As
 
 HOW TO RUN:
 
-1)	Select an input image (either PNG, JPEG, BMP, or GIF) by clicking the "File" button.
+1)  Select an input image (either PNG, JPEG, BMP, or GIF) by clicking the "File" button.
 
-2)	Select desired printer DPI. Default 600, or choose 150, 300, 360. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI will give beter results for printing.
+2)  Select desired printer DPI. Default 600, or choose 150, 300, 360. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI will give better results for printing.
 	
-3)	Enter the radius and height of the cylinder used to view the output image in inches.
+3)  Enter the radius and height of the cylinder used to view the output image in inches.
 	
-4)	Enter the viewpoint coordinates as x and z values in inches.
+4)  Enter the viewpoint coordinates as x and z values in inches.
 
 5) If working with transparent images, select "Preserve Transparency" under "Output Options." If you don't want to see the locator circle in your output image deselect "Show Cylinder Base." If you have an input image with a WHITE background, you may select "Ignore WHITE" to lower system RAM requirements when rendering (can be useful to speed up the transformation as well). The HQ rendering method applies anti-aliasing hints on the polypixels (unfortunately this doesn't perform anti-aliasing on the overall image). If HQ RAM usage is too high, try selecting Low RAM option and Ignore WHITE.
 	
-5)	Next click the "Transform" button and wait for the output image	to render. This can take a while or be very fast, depending on the input image size and if there are a significant number TRANSPARENT pixels (which are ignored).
+5)  Next click the "Transform" button and wait for the output image	to render. This can take a while or be very fast, depending on the input image size and if there are a significant number TRANSPARENT pixels (which are ignored).
 	
-6)	Finally, using the save prompt, find a location and specify a name for the output image to be saved. The initial file name contains information to help the user identify the viewing postion and cylinder dimensions the image was rendered for. This text may be errased or kept if deemed useful.
+6)  Finally, using the save prompt, find a location and specify a name for the output image to be saved. The initial file name contains information to help the user identify the viewing position and cylinder dimensions the image was rendered for. This text may be erased or kept if deemed useful.
 
 -------------------------------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ KNOWN ISSUES (ClyMA Java Utility v1.01):
 
 1)  Large amounts of RAM or pagefile are needed for "HQ" and "Low RAM" rendering. Generally 32GiB or more RAM/pagefile is required to render large sized input images (>= 2000 pixels). It's not odd to see 16GiB used to render smaller images. However, most small images (that are up scaled) use between 1 to 4 GiB of RAM. Due to a bug in the way Java draws polygons, output polypixels are sporadically rotated (this affects both HQ and Low RAM rendering methods). To correct for this, a stroke is applied to the inside of each polygon (filling it twice) to ensure rotated polypixels are not seen in the output. Additionally, when anti-aliasing is used (HQ rendering method), the boundary between polypixels is not filled. A polyline is drawn around each polypixel to fill these gaps and causes the HQ rendering method to use significantly more system RAM than the Low RAM method. If running the source code in Eclipse IDE, you may need to increase the maximum	heap memory the Java VM can use when running the program. To	do so add -Xmx20g (or more) to the VM argument section in Eclipse: Project -> Properties -> Run/Debug Settings -> Main(2) -> Arguments -> VM arguments. 
 
-2)  If the JVM garbage collection kicks in, due to low amounts of system RAM, the program may never finish rendering. You should watch the memory usage and simply close the program if all CPU/Threads hit 100% for an extended period of time (a symptom that garbage collection is stalling further progress). Workarounds: A) lower the printer DPI, B) make the input image smaller, C) use a computer with more RAM or D) set your pagefile to a fixed large value (30GiB or more, use a HDD to minimize write wear on your SSD). If you have enough system RAM CPU usage will be low (20-30%) with some ocassional spikes (as it is single threaded and can't fully load the CPU).
+2)  If the JVM garbage collection kicks in, due to low amounts of system RAM, the program may never finish rendering. You should watch the memory usage and simply close the program if all CPU/Threads hit 100% for an extended period of time (a symptom that garbage collection is stalling further progress). Workarounds: A) lower the printer DPI, B) make the input image smaller, C) use a computer with more RAM or D) set your pagefile to a fixed large value (30GiB or more, use a HDD to minimize write wear on your SSD). If you have enough system RAM CPU usage will be low (20-30%) with some occasional spikes (as it is single threaded and can't fully load the CPU).
 
 3)  Due to limitations of the snapshot or	writable image classes, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if Vx (view distance) is large with respect to Vz (view height) and large printer DPI (600).
 
