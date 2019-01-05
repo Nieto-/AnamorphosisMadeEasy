@@ -1,6 +1,6 @@
 Anamorphosis Made Easy (AME) is a (soon to be) collection of simple utilities for making specular anamorphic art.
 
-The primary goal of the AME project is to provide an easy way for people to make their own anamorphic art. The second goal is to provide more advanced options for rendering and setting of physical parameters, such as preserving transparency, setting the mirror dimensions, vantage point, DPI, as well as use of interpolating points to smooth extreme edges of cylindrical transformations.
+The primary goal of the AME project is to provide an easy way for people to make their own anamorphic art. The second goal is to provide more advanced options for rendering and setting of physical parameters, such as preserving transparency, specifying the mirror dimensions, vantage point, and DPI.
 
 -------------------------------------------------------------------------------------------------
 
@@ -10,28 +10,44 @@ CylMA's rendering method uses an exact mathematical transformation (rather than 
 
 CylMA was written for JavaFX 8 and as a Mathematica Notebook file. The Mathematica notebook code will perform the transformation with significantly less system memory and additionally applies a nice anti-aliasing filter to the output. However, it requires that you have access to Wolfram Mathematica. For those without access to Wolfram Mathematica, the Java utility may be used instead--and in some ways is more powerful.
 
-Note that while you may use CylMA on its own, both the Java utility and the Mathematica Notebook file were intended to produce image files that will be post processed with Photoshop or GIMP to crop and edit before being printed. Furthermore, due to MS Windows' poor photo handeling, the afore mentioned programs should be used to print the output images. This is to ensure the DPI metadata is enforced during printing and no resizing of the image is performed.
+Note that while you may use CylMA on its own, both the Java utility and the Mathematica Notebook file were intended to produce image files that will be post processed with Photoshop or GIMP to crop and edit before being printed. If printing at home, using either of these programs will help ensure that the DPI metadata is enforced and no resizing of the image is performed.
 
 -------------------------------------------------------------------------------------------------
 
 CylMA Java Utility:
 
-The Java utility currently supports PNG, JPEG, BMP, and GIF input file types. As of v1.01, only PNG output images are supported, though JPEG support may be implemented in later versions. By default, transparent pixels are "flattened" to WHITE when saving. However, you may preserve transparency by simply selecting the appropriate output option. A circle for locating where to place your mirror is added to the output by default, but may be omitted by deselecting it. An interpolating points selection is made available to correct for how the image is transformed (by using pixel corner points). This option should usually be set to 0; however, it is useful for "rounding" the top extreme left/right edges of the output image which may appear flat.
+The Java utility currently supports PNG, JPEG, BMP, and GIF input file types. As of v1.01, only PNG output images are supported, though JPEG support may be implemented in later versions. By default, transparent pixels are "flattened" to WHITE when saving. However, you may preserve transparency by simply selecting the appropriate output option. A circle for locating where to place your mirror is added to the output by default, but may be omitted by deselecting it. An interpolating points selection is made available to correct for how the image is transformed (pixel corner-points). This option should usually be set to 0; however, it is useful for "rounding" the extreme top left/right edges of the output image that wrap around the back side of the cylinder.
+
+HOW TO RUN:
+
+1)	Select an input image (either PNG, JPEG, BMP, or GIF) by clicking the "File" button.
+
+2)	Select desired printer DPI. Default 600, or choose 150, 300, 360. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI will give beter results for printing.
+	
+3)	Enter the radius and height of the cylinder used to view the output image in inches.
+	
+4)	Enter the viewpoint coordinates as x and z values in inches.
+
+5) If working with transparent images, select "Preserve Transparency" under "Output Options." If you don't want to see the locator circle in your output image deselect "Show Cylinder Base." If you have an input image with a WHITE background, you may select "Ignore WHITE" to lower system RAM requirements when rendering (can be useful to speed up the transformation as well). The HQ rendering method applies anti-aliasing hints on the polypixels (unfortunately this doesn't perform anti-aliasing on the overall image). If HQ RAM usage is too high, try selecting Low RAM option and Ignore WHITE.
+	
+5)	Next click the "Transform" button and wait for the output image	to render. This can take a while or be very fast, depending on the input image size and if there are a significant number TRANSPARENT pixels (which are ignored).
+	
+6)	Finally, using the save prompt, find a location and specify a name for the output image to be saved. The initial file name contains information to help the user identify the viewing postion and cylinder dimensions the image was rendered for. This text may be errased or kept if deemed useful.
 
 -------------------------------------------------------------------------------------------------
 
 KNOWN ISSUES (ClyMA Java Utility v1.01):
 
-1)  Large amounts of RAM or pagefile are needed for "HQ" and "Low RAM" rendering. Generally 32GiB or more RAM/pagefile is required to render large 2000 pixel sized input images. It's not odd to see 16GiB used to render smaller images. Due to a bug in the way Java draws polygons, they are sometimes rotated (this affects both HQ and Low RAM rendering methods), and forces me to apply a stroke to the inside of each polygon (literally filling it twice) to correct for this. Additionally, when anti-aliasing is used (HQ rendering method), the boundary between polygons is not filled. To fix this, a polyline is also drawn. This causes the HQ rendering method to use significantly more system RAM when rendering vs. Low RAM, but either method still uses large amounts of system memory.
+1)  Large amounts of RAM or pagefile are needed for "HQ" and "Low RAM" rendering. Generally 32GiB or more RAM/pagefile is required to render large sized input images (>= 2000 pixels). It's not odd to see 16GiB used to render smaller images. However, most small images (that are up scaled) use between 1 to 4 GiB of RAM. Due to a bug in the way Java draws polygons, output polypixels are sporadically rotated (this affects both HQ and Low RAM rendering methods). To correct for this, a stroke is applied to the inside of each polygon (filling it twice) to ensure rotated polypixels are not seen in the output. Additionally, when anti-aliasing is used (HQ rendering method), the boundary between polypixels is not filled. A polyline is drawn around each polypixel to fill these gaps and causes the HQ rendering method to use significantly more system RAM than the Low RAM method. If running the source code in Eclipse IDE, you may need to increase the maximum	heap memory the Java VM can use when running the program. To	do so add -Xmx20g (or more) to the VM argument section in Eclipse: Project -> Properties -> Run/Debug Settings -> Main(2) -> Arguments -> VM arguments. 
 
-2)  If garbage collection kicks in, due to low amounts of system RAM, the program may never finish rendering. You should watch the memory usage and simply close the program if all CPU/Threads hit 100% for an extended period of time (a symptom that garbage collection has kicked in). Either: A) lower the printer DPI, B) make the input image smaller, C) use a computer with more RAM or D) set your pagefile to a fixed large value (30GiB or more, use a HDD to minimize write wear on your SSD).
+2)  If the JVM garbage collection kicks in, due to low amounts of system RAM, the program may never finish rendering. You should watch the memory usage and simply close the program if all CPU/Threads hit 100% for an extended period of time (a symptom that garbage collection is stalling further progress). Workarounds: A) lower the printer DPI, B) make the input image smaller, C) use a computer with more RAM or D) set your pagefile to a fixed large value (30GiB or more, use a HDD to minimize write wear on your SSD). If you have enough system RAM CPU usage will be low (20-30%) with some ocassional spikes (as it is single threaded and can't fully load the CPU).
 
-3)  Due to limitations of Java, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if Vx (view distance) is large with respect to Vz (view height) and large printer DPI (600).
+3)  Due to limitations of the snapshot or	writable image classes, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if Vx (view distance) is large with respect to Vz (view height) and large printer DPI (600).
 
 -------------------------------------------------------------------------------------------------
 
-KNOWN ISSUES (CylMA Mathematica Script v1.00):
+KNOWN ISSUES (CylMA Mathematica 2D Script):
 
-1)  Setting MaxRecusion beyond 5 will cause Mathematica to crash.
+1)  Setting MaxRecusion beyond 4 may cause Mathematica to crash.
 
 2)  Many features in the Java utility are not yet available.
