@@ -10,7 +10,7 @@ CylMA's rendering method uses an exact mathematical transformation (rather than 
 
 CylMA was written for JavaFX 8 and as a Mathematica Notebook file. The Mathematica notebook code will perform the transformation with significantly less system memory and additionally applies a nice anti-aliasing filter to the output. However, it requires that you have access to Wolfram Mathematica. For those without access to Wolfram Mathematica, the Java utility may be used instead--and in some ways is more powerful.
 
-Note that while you may use CylMA on its own, both the Java utility and the Mathematica Notebook file were intended to produce image files that will be post processed with Photoshop or GIMP to crop and edit before being printed. Furthermore, due to MS Windows' poor photo handeling, the afore mentioned programs should be used to print the output images. This is to ensure the DPI metadata is enforced during printing and no scaling or resizing of the image is performed.
+Note that while you may use CylMA on its own, both the Java utility and the Mathematica Notebook file were intended to produce image files that will be post processed with Photoshop or GIMP to crop and edit before being printed. Furthermore, due to MS Windows' poor photo handeling, the afore mentioned programs should be used to print the output images. This is to ensure the DPI metadata is enforced during printing and no resizing of the image is performed.
 
 -------------------------------------------------------------------------------------------------
 
