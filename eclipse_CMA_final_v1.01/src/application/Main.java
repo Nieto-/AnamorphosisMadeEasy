@@ -46,7 +46,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 //Garrett Mackelprang
-//Cylindrical Anamorphosis
+//Cylindrical Mirror Anamorphosis
 //Version 1.01
 //Jan. 4th 2019
 
