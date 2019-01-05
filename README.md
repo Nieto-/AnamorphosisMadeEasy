@@ -26,7 +26,7 @@ KNOWN ISSUES (ClyMA Java Utility v1.01):
 
 2)  If garbage collection kicks in, due to low amounts of system RAM, the program may never finish rendering. You should watch the memory usage and simply close the program if all CPU/Threads hit 100% for an extended period of time (a symptom that garbage collection has kicked in). Either: A) lower the printer DPI, B) make the input image smaller, C) use a computer with more RAM or D) set your pagefile to a fixed large value (30GiB or more, use a HDD to minimize write wear on your SSD).
 
-3)  Due to limitations of the Java snapshot/writeable image classes, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if Vx (view distance) is large with respect to Vz (view height) and large printer DPI (600).
+3)  Due to limitations of Java, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if Vx (view distance) is large with respect to Vz (view height) and large printer DPI (600).
 
 -------------------------------------------------------------------------------------------------
 
