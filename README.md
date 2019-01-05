@@ -30,7 +30,7 @@ KNOWN ISSUES (ClyMA Java Utility v1.01):
 
 -------------------------------------------------------------------------------------------------
 
-KNOWN ISSUES (CylMA Mathematic Script v1.00):
+KNOWN ISSUES (CylMA Mathematica Script v1.00):
 
 1)  Setting MaxRecusion beyond 5 will cause Mathematica to crash.
 
