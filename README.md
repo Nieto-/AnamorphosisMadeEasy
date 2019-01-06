@@ -22,7 +22,7 @@ HOW TO RUN:
 
 1)  Select an input image (either PNG, JPEG, BMP, or GIF) by clicking the "File" button.
 
-2)  Select desired printer DPI. Default 600, or you may select 150, 300, or 360 DPI. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI (after post processing) will give better results for printing.
+2)  Select desired printer DPI. Default DPI is 600, but you may select 150, 300, or 360 DPI as needed. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI (after post processing) will give better results for printing.
 	
 3)  Enter the radius and height of the cylinder used to view the output image in inches.
 	
