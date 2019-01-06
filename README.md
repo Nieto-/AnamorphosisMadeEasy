@@ -1,4 +1,6 @@
-Anamorphosis Made Easy (AME) is a (soon to be) collection of utilities for making specular and perspective anamorphic art. The specular utilities will be for cylindrical and conical mirrors, but more types may be added in the future.
+Anamorphosis Made Easy (AME) 
+
+AME is a (soon to be) collection of utilities for making specular and perspective anamorphic art. The specular utilities will be for cylindrical and conical mirrors, but more types may be added in the future.
 
 -------------------------------------------------------------------------------------------------
 
