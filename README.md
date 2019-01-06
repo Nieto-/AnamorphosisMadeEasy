@@ -22,7 +22,7 @@ HOW TO RUN:
 
 1)  Select an input image (either PNG, JPEG, BMP, or GIF) by clicking the "File" button.
 
-2)  Select desired printer DPI. Default 600, or choose 150, 300, 360. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI will give better results for printing.
+2)  Select desired printer DPI. Default 600, or you may select 150, 300, or 360 DPI. Most professional images for photography are printed at 300 or 360 DPI, documents and certain types of graphics are printed at 600 DPI. If you have the system memory available, outputting images at 600 DPI and later scaling them down to 300 DPI (after post processing) will give better results for printing.
 	
 3)  Enter the radius and height of the cylinder used to view the output image in inches.
 	
@@ -42,7 +42,7 @@ KNOWN ISSUES (ClyMA Java Utility v1.01):
 
 2)  If the JVM garbage collection kicks in, due to low amounts of system RAM, the program may never finish rendering. You should watch the memory usage and simply close the program if all CPU threads hit 100% for an extended period of time (a symptom that garbage collection is stalling further progress). Workarounds: A) lower the printer DPI, B) make the input image smaller, C) use a computer with more RAM or D) set your pagefile to a fixed large value (30 GiB or more, use a HDD to minimize write wear on your SSD). If you have enough system RAM CPU usage will be low (20-30%) with some occasional spikes (as it is single threaded and can't fully load the CPU).
 
-3)  Due to limitations of the snapshot or writable image classes, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if view distance (vx ) is large with respect to view height (vz) and large printer DPI (600).
+3)  Due to limitations of the snapshot or writable image classes, the program will fail to save if the output is larger than approximately 12k x 12k pixels. This can happen quite easily if view distance (vx) is large with respect to view height (vz) and large printer DPI (600).
 
 -------------------------------------------------------------------------------------------------
 
