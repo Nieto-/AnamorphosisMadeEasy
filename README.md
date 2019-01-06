@@ -8,7 +8,7 @@ Anamorphosis is a type of visual illusion concerned with the creation of distort
 
 Anamorphic illusions generally consist of two major types: The first is called specular or mirror anamorphosis. This type of anamorphosis involves reflecting a distorted image from a plane or other surface off of a curved mirror (useually a cylinder or cone) to reconstitute the original image. 
 
-The second type is called plane anamorphosis. In this case, a distorted or “stretched” image on a plane (or other surface) is resolved only when looking from the correct vantage point. A major attraction of this type of anamorphosis is that the image, when viewed from the correct vantage point, appears to have more depth, giving it a three-dimensional appearance. Due to this apparent depth, plane anamorphs have become a common and popular illusion to use in “street art.”
+The second type is called plane anamorphosis. In this case, a distorted or “stretched” image on a plane (or other surface) is resolved only when looking from the correct vantage point. A major attraction of this type of anamorphosis is that the image, when viewed from the correct vantage point, appears to have more depth, giving it a three-dimensional appearance. Due to this apparent depth, plane anamorphs have become a popular illusion to use in “street art.”
 
 -------------------------------------------------------------------------------------------------
 
