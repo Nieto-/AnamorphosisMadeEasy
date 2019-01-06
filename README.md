@@ -1,6 +1,20 @@
-Anamorphosis Made Easy (AME) is a (soon to be) collection of simple utilities for making specular anamorphic art.
+Anamorphosis Made Easy (AME) is a (soon to be) collection of utilities for making specular and perspective anamorphic art. The specular utilities will be for cylindrical and conical mirrors, but more types may be added in the future.
 
-The primary goal of the AME project is to provide an easy way for people to make their own anamorphic art. The second goal is to provide more advanced options for rendering and setting of physical parameters, such as preserving transparency, specifying the mirror dimensions, vantage point, and DPI.
+-------------------------------------------------------------------------------------------------
+
+What's All This Anamorphosis Stuff About?
+
+Anamorphosis is a type of visual illusion concerned with the creation of distorted images according to the physics of perspective and mirror reflection. What makes these illusions so interesting is that the observer is only able to resolve an undistorted image if looking from a specific vantage point or with aid of an unusual shape of mirror.
+
+Anamorphic illusions generally consist of two major types: The first is called specular or mirror anamorphosis. This type of anamorphosis involves reflecting a distorted image from a plane or other surface off of a curved mirror (useually a cylinder or cone) to reconstitute the original image. The second type is called plane anamorphosis. In this case, a distorted or “stretched” image on a plane (or other surface) is resolved only when looking from the correct vantage point. A major attraction of this type of anamorphosis is that the image, when viewed from the correct vantage point, appears to have more depth, giving it a three-dimensional appearance. Due to this apparent depth, plane anamorphs have become a common and popular illusion to use in “street art.”
+
+-------------------------------------------------------------------------------------------------
+
+AME's Goals
+
+The primary goal of the AME project is to provide an easy way for people to make their own anamorphic art and hopefully get them interested in applied mathematics, physics, and programming.
+
+The second goal is to provide more advanced options for rendering and setting of physical parameters than utilities currently avaliable: such as preserving transparency, specifying the mirror dimensions, vantage point, and DPI.
 
 -------------------------------------------------------------------------------------------------
 
@@ -8,7 +22,7 @@ Cylindrical Mirror Anamorphosis (CylMA) is the first of the AME utilities to be 
 
 CylMA's rendering method uses an exact mathematical transformation (rather than an approximation) for finite viewing distance. This requires that you input the coordinates of your vantage point and the physical dimensions of the cylinder from which you will view the distorted image. A derivation of the transformation used by CylMA is provided for the adventurous reader and requires working knowledge of vector calculus and some linear algebra to follow along. The derivation extends the application of plane mirror virtual images to a curved mirror for finding the inverse transformation. A future draft will include diagrams and an appendix for a derivation of the Law of Reflection from Fermat's Principle of Least Time as well as a corollary to the Law of Reflection for plane mirrors: which shows that an object and it's virtual image are equidistant from the mirror along a line normal to the mirror.
 
-CylMA was written for JavaFX 8 and as a Mathematica Notebook file. The Mathematica notebook code will perform the transformation with significantly less system memory and additionally applies a nice anti-aliasing filter to the output. However, it requires that you have access to Wolfram Mathematica. For those without access to Wolfram Mathematica, the Java utility may be used instead--and in some ways is more powerful.
+CylMA was written for JavaFX 8 and as a Mathematica notebook file. The Mathematica notebook will perform the transformation with significantly less system memory and additionally applies a nice anti-aliasing filter to the output. However, it currently doesn't support DPI metadata or retain the image's aspect ratio. It also requires that you have access to Wolfram Mathematica. For those without access to Wolfram Mathematica, the Java utility may be used instead.
 
 Note that while you may use CylMA on its own, both the Java utility and the Mathematica Notebook file were intended to produce image files that will be post processed with Photoshop or GIMP to crop and edit before being printed. If printing at home, using either of these programs will help ensure that the DPI metadata is enforced and no resizing of the image is performed.
 
@@ -28,7 +42,7 @@ HOW TO RUN:
 	
 4)  Enter the viewpoint coordinates as x and z values in inches.
 
-5) If working with transparent images, select "Preserve Transparency" under "Output Options." If you don't want to see the locator circle in your output image deselect "Show Cylinder Base." If you have an input image with a WHITE background, you may select "Ignore WHITE" to lower system RAM requirements when rendering (can be useful to speed up the transformation as well). The HQ rendering method applies anti-aliasing hints on the polypixels (unfortunately this doesn't perform anti-aliasing on the overall image). If HQ RAM usage is too high, try selecting Low RAM option and Ignore WHITE.
+5) If working with transparent images, select "Preserve Transparency" under "Output Options." If you don't want to see the locator circle in your output image, deselect "Show Cylinder Base." If you have an input image with a WHITE background, you may select "Ignore WHITE" to lower system RAM requirements when rendering (can be useful to speed up the transformation as well). The HQ rendering method applies anti-aliasing hints on the polypixels (unfortunately this doesn't perform anti-aliasing on the overall image). If HQ RAM usage is too high, try selecting Low RAM option and Ignore WHITE.
 	
 5)  Next click the "Transform" button and wait for the output image to render. This can take a while or be very fast, depending on the input image size and if there are a significant number TRANSPARENT pixels (which are ignored).
 	
