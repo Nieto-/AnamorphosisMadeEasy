@@ -64,8 +64,8 @@ KNOWN ISSUES (ClyMA Java Utility v1.01):
 
 -------------------------------------------------------------------------------------------------
 
-KNOWN ISSUES (CylMA Mathematica 2D Script):
+KNOWN ISSUES (CylMA Mathematica Notebook, 2D SECTION):
 
-1)  Setting MaxRecusion beyond 4 may cause Mathematica to crash.
+1)  Setting MaxRecusion beyond 5 may cause Mathematica to crash.
 
 2)  Many features in the Java utility are not yet available.
